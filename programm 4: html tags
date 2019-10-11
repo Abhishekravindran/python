@@ -1,0 +1,19 @@
+import http.server
+import socketserver
+
+PORT = 8080
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("serving at port", PORT)
+    httpd.serve_forever()
+    
+    
+    output:
+serving at port 8080
+127.0.0.1 - - [11/Oct/2019 11:30:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [11/Oct/2019 11:30:07] code 404, message File not found
+127.0.0.1 - - [11/Oct/2019 11:30:07] "GET /favicon.ico HTTP/1.1" 404 -
+
+    This is a simple HTTP sever program
+Congratulations! The HTTP Server is working!
